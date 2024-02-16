@@ -1,0 +1,13 @@
+domains
+list=string*
+
+predicates
+split(int,int, list, list, list)
+
+clauses
+split(_, _, [],[],[]).
+split(N, NN, [H|T],[H], T):-N=NN,!.
+split(N, NN, [H|T], [H|T1], L):-N1=NN+1, split(N, N1, T, T1,L).
+
+goal
+split(3, 1, [@Ñîáàààà÷êè:)@], L1, L2).
